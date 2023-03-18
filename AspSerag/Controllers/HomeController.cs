@@ -18,6 +18,11 @@ namespace AspSerag.Controllers
             return View();
         }
 
+        public IActionResult Kontakt()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

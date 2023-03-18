@@ -1,8 +1,38 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using Microsoft.AspNetCore.Identity
+@{
+    ViewData["Title"] = "SERAG";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section>
+	<img src="~/images/avatar.jpg" class="avatar" class="rounded-circle" class="float" alt="auto">
+
+	<p>
+		Vítejte v aplikaci SERAG
+	</p>
+
+	<p>
+		Pojišťovací aplikace
+	</p>
+	<p>
+		Aplikace umožňuje evidenci:
+	</p>
+	<ul>
+		<li>Pojištěnců</li>
+		<li>Pojistných událostí</li>
+		<li>Uživatelů</li>
+		<li>Pojištění</li>
+	</ul>
+
+	<p>
+		<strong>Přidat a vyhledat pojištěnce můžete na odkazech níže:</strong>
+	</p>
+
+	<p class="tlacitko-odstavec">
+		<p></p>
+	<a asp-controller="Article1" asp-action="Create" class="reference-tlacitko">Přidat pojištěnce</a>
+	<a asp-controller="Article1" asp-action="Create" class="reference-tlacitko">Vyhledat pojištěnce</a>
+		<p></p>
+	</p>
+	<div class="cistic"></div>
+</section>
+	
