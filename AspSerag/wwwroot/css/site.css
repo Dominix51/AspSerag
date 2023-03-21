@@ -11,12 +11,13 @@
 }
 
 html {
-    background: #414042;
+    background: #808080;
+    font-display:auto;
 }
 
 body {
     font: 14px "Poppins";
-    background: #f9f9f9;
+    background: white;
     color: #414042;
     box-sizing: border-box;
     margin: 0;
@@ -27,7 +28,7 @@ body {
     body > header {
         height: 100px;
         width: 100%;
-        background: #00386B;
+        background: #40427e;
         color: white;
         display: flex;
         justify-content: space-evenly;
@@ -91,7 +92,7 @@ nav ul {
 
         nav ul a:hover,
         .aktivni a {
-            border-bottom: 2px solid #EF6534;
+            border-bottom: 2px solid #70B73A;
         }
 
 article {
@@ -107,7 +108,7 @@ article {
     article h5,
     article h6 {
         padding: 10px 0;
-        color: #00386B;
+        color: #40427e;
     }
 
     article h1 {
@@ -116,7 +117,7 @@ article {
         font-weight: bold;
         text-transform: uppercase;
         width: max-content;
-        border-bottom: 4px solid #EF6534;
+        border-bottom: 7px solid #70B73A;
     }
 
     article h2 {
@@ -133,7 +134,7 @@ article {
     }
 
     article section a {
-        color: #EF6534;
+        color: #70B73A;
     }
 
 footer {
@@ -141,13 +142,13 @@ footer {
     text-align: center;
     height: 100px;
     color: white;
-    background: #414042;
+    background: #999999;
     padding: 50px 0 0 0;
     clip-path: polygon(0 30px, 100% 0, 100% 105%, 0 105%);
 }
 
     footer a {
-        color: white;
+        color:greenyellow;
         text-decoration: none;
     }
 
@@ -167,7 +168,7 @@ footer {
 }
 
 .reference-tlacitko {
-    background: #70B73A;
+    background: #40427e;
     color: white;
     font-size: 0.9em;
     text-decoration: none;
@@ -177,7 +178,7 @@ footer {
 }
 
 .kontakt-tlacitko {
-    background: #EF6534;
+    background: #70B73A;
     padding: 10px 20px;
     border-radius: 20px;
 }

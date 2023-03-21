@@ -8,11 +8,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\images\hobi_web.jpg" />
+    <Content Remove="wwwroot\images\hobi_web_nahled.jpg" />
+    <Content Remove="wwwroot\images\html.png" />
+    <Content Remove="wwwroot\images\java.png" />
+    <Content Remove="wwwroot\images\kalkulacka_java.png" />
+    <Content Remove="wwwroot\images\kalkulacka_java_nahled.png" />
+    <Content Remove="wwwroot\images\miny_pascal.png" />
+    <Content Remove="wwwroot\images\miny_pascal_nahled.png" />
+    <Content Remove="wwwroot\images\pascal.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.15">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
   </ItemGroup>
 
 </Project>
