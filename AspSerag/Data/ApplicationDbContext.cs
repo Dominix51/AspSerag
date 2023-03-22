@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using AspSerag.Models;
 
 namespace AspSerag.Data
 {
@@ -9,5 +10,6 @@ namespace AspSerag.Data
             : base(options)
         {
         }
+        public DbSet<AspSerag.Models.Pojisteni1>? Pojisteni1 { get; set; }
     }
 }
