@@ -2,96 +2,90 @@
 using Microsoft.EntityFrameworkCore;
 using AspSerag.Data;
 using AspSerag.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace AspSerag.Controllers
 {
-    [Authorize(Roles = "admin")]
-    public class Pojisteni1Controller : Controller
+    public class Pojisteni2Controller : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public Pojisteni1Controller(ApplicationDbContext context)
+        public Pojisteni2Controller(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Pojisteni1
-        [AllowAnonymous]
+        // GET: Pojisteni2
         public async Task<IActionResult> Index()
         {
-              return _context.Pojisteni1 != null ? 
-                          View(await _context.Pojisteni1.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Pojisteni1'  is null.");
+              return _context.Pojisteni2 != null ? 
+                          View(await _context.Pojisteni2.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Pojisteni2'  is null.");
         }
 
-        // GET: Pojisteni1/Details/5
-        [AllowAnonymous]
+        // GET: Pojisteni2/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Pojisteni1 == null)
+            if (id == null || _context.Pojisteni2 == null)
             {
                 return NotFound();
             }
 
-            var pojisteni1 = await _context.Pojisteni1
+            var pojisteni2 = await _context.Pojisteni2
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (pojisteni1 == null)
+            if (pojisteni2 == null)
             {
                 return NotFound();
             }
 
-            return View(pojisteni1);
+            return View(pojisteni2);
         }
 
-        // GET: Pojisteni1/Create
-        [AllowAnonymous]
+        // GET: Pojisteni2/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Pojisteni1/Create
+        // POST: Pojisteni2/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        public async Task<IActionResult> Create([Bind("Id,Jméno,Příjmení,Věk,Bydliště,Obec,PSČ,Telefon,Email")] Pojisteni1 pojisteni1)
+        public async Task<IActionResult> Create([Bind("Id,Jméno,Příjmení,Popis")] Pojisteni2 pojisteni2)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(pojisteni1);
+                _context.Add(pojisteni2);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Ulozit));
             }
-            return View(pojisteni1);
+            return View(pojisteni2);
         }
 
-        // GET: Pojisteni1/Edit/5
+        // GET: Pojisteni2/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Pojisteni1 == null)
+            if (id == null || _context.Pojisteni2 == null)
             {
                 return NotFound();
             }
 
-            var pojisteni1 = await _context.Pojisteni1.FindAsync(id);
-            if (pojisteni1 == null)
+            var pojisteni2 = await _context.Pojisteni2.FindAsync(id);
+            if (pojisteni2 == null)
             {
                 return NotFound();
             }
-            return View(pojisteni1);
+            return View(pojisteni2);
         }
 
-        // POST: Pojisteni1/Edit/5
+        // POST: Pojisteni2/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Jméno,Příjmení,Věk,Bydliště,Obec,PSČ,Telefon,Email")] Pojisteni1 pojisteni1)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Jméno,Příjmení,Popis")] Pojisteni2 pojisteni2)
         {
-            if (id != pojisteni1.Id)
+            if (id != pojisteni2.Id)
             {
                 return NotFound();
             }
@@ -100,12 +94,12 @@ namespace AspSerag.Controllers
             {
                 try
                 {
-                    _context.Update(pojisteni1);
+                    _context.Update(pojisteni2);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!Pojisteni1Exists(pojisteni1.Id))
+                    if (!Pojisteni2Exists(pojisteni2.Id))
                     {
                         return NotFound();
                     }
@@ -116,77 +110,71 @@ namespace AspSerag.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(pojisteni1);
+            return View(pojisteni2);
         }
 
-        // GET: Pojisteni1/Delete/5
+        // GET: Pojisteni2/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Pojisteni1 == null)
+            if (id == null || _context.Pojisteni2 == null)
             {
                 return NotFound();
             }
 
-            var pojisteni1 = await _context.Pojisteni1
+            var pojisteni2 = await _context.Pojisteni2
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (pojisteni1 == null)
+            if (pojisteni2 == null)
             {
                 return NotFound();
             }
 
-            return View(pojisteni1);
+            return View(pojisteni2);
         }
 
-        // POST: Pojisteni1/Delete/5
+        // POST: Pojisteni2/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Pojisteni1 == null)
+            if (_context.Pojisteni2 == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Pojisteni1'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Pojisteni2'  is null.");
             }
-            var pojisteni1 = await _context.Pojisteni1.FindAsync(id);
-            if (pojisteni1 != null)
+            var pojisteni2 = await _context.Pojisteni2.FindAsync(id);
+            if (pojisteni2 != null)
             {
-                _context.Pojisteni1.Remove(pojisteni1);
+                _context.Pojisteni2.Remove(pojisteni2);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool Pojisteni1Exists(int id)
+        private bool Pojisteni2Exists(int id)
         {
-          return (_context.Pojisteni1?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Pojisteni2?.Any(e => e.Id == id)).GetValueOrDefault();
         }
         // Get Search
         public async Task<IActionResult> Vyhledat(string SearchString)
         {
-            //if (_context.Article1 == null)
-            // {
-            //     return Problem("Entity set 'ApplicationDbContext.Article1'  is null.");
+            //if (_context.Pojisteni2 == null)
+            //{
+            //    return Problem("Entity set 'ApplicationDbContext.Pojisteni2'  is null.");
             //}
             ViewData["Vyhledat"] = SearchString;
-            var pojisteni1 = from m in _context.Pojisteni1
+            var pojisteni2 = from m in _context.Pojisteni2
                            select m;
 
             if (!String.IsNullOrEmpty(SearchString))
             {
-                pojisteni1 = pojisteni1.Where(s => s.Příjmení!.Contains(SearchString));
+                pojisteni2 = pojisteni2.Where(s => s.Příjmení!.Contains(SearchString));
             }
 
-            return View(await pojisteni1.ToListAsync());
-        }
-        [HttpPost]
-        public string Vyhledat(string searchString, bool notUsed)
-        {
-            return "From [HttpPost]Index: filter on " + searchString;
+            return View(await pojisteni2.ToListAsync());
         }
         public IActionResult Ulozit()
         {
             return View();
         }
-
     }
 }

@@ -1,17 +1,20 @@
 ﻿@model IEnumerable<AspSerag.Models.Pojisteni1>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Pojištění";
 }
 
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Přidat pojištění</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Jméno)
             </th>
@@ -43,6 +46,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Jméno)
             </td>
             <td>
@@ -67,11 +73,17 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    @if (User.IsInRole("admin"))
+                    {
+                        <p>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </p>
+                    }
             </td>
         </tr>
 }
     </tbody>
 </table>
+<a asp-controller="Home" asp-action="Pojisteni">Zpět na hlavní stránku</a>

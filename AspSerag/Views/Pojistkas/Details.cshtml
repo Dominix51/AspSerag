@@ -1,0 +1,64 @@
+﻿@model AspSerag.Models.Pojistka
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h4>Pojistka</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PojistenyId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PojistenyId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Majetek)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Majetek)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Osoby)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Osoby)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Zivot)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Zivot)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Uraz)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Uraz)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Predmet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Predmet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Od)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Od)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Do)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Do)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Editovat</a> |
+    <a asp-controller="Home" asp-action="Udalosti">Zpět na hlavní stránku</a>
+</div>

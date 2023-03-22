@@ -21,16 +21,14 @@
         <nav>
             <ul>
                 <li><a asp-controller="Home" asp-action="Index">Úvod</a></li>
-                <li><a asp-controller="Pojisteni1" asp-action="Create">Pojištění</a></li>
+                <li><a asp-controller="Home" asp-action="Pojisteni">Pojištění</a></li>
                 <li><a asp-controller="Home" asp-action="Udalosti">Poj.Události</a></li>
                 <li><a asp-controller="Home" asp-action="Kontakt">Kontakt</a></li>
-                <li><a asp-controller="Home" asp-action="Prihlas">Příhlášení</a></li>
+                <li><a asp-controller="Account" asp-action="Login">Příhlášení</a></li>
                 <li><a class="kontakt-tlacitko" asp-controller="Account" asp-action="Register">Registrovat</a></li>
-                
             </ul>
         </nav>
     </header>
-
     <article>
         <div id="centrovac"
             @if (Context.Request.RouteValues.Values.Any(p=> p is "Home")&& Context.Request.RouteValues.Values.Any(p => p is "Index"))
@@ -53,9 +51,8 @@
     <script src="~/lib/lightbox2/js/lightbox.min.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
-    <footer>
-        Vytvořil &copy;Domino 2023 pro <a href="https://itnetwork.cz">itnetwork.cz</a>
-    </footer>
+<footer>
+    Vytvořil &copy;Domino 2023 pro <a href="https://itnetwork.cz">itnetwork.cz</a>
+</footer>
 </body>
-
 </html>

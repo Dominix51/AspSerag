@@ -2,96 +2,90 @@
 using Microsoft.EntityFrameworkCore;
 using AspSerag.Data;
 using AspSerag.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace AspSerag.Controllers
 {
-    [Authorize(Roles = "admin")]
-    public class Pojisteni1Controller : Controller
+    public class PojistkasController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public Pojisteni1Controller(ApplicationDbContext context)
+        public PojistkasController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Pojisteni1
-        [AllowAnonymous]
+        // GET: Pojistkas
         public async Task<IActionResult> Index()
         {
-              return _context.Pojisteni1 != null ? 
-                          View(await _context.Pojisteni1.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Pojisteni1'  is null.");
+              return _context.Pojistka != null ? 
+                          View(await _context.Pojistka.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Pojistka'  is null.");
         }
 
-        // GET: Pojisteni1/Details/5
-        [AllowAnonymous]
+        // GET: Pojistkas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Pojisteni1 == null)
+            if (id == null || _context.Pojistka == null)
             {
                 return NotFound();
             }
 
-            var pojisteni1 = await _context.Pojisteni1
+            var pojistka = await _context.Pojistka
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (pojisteni1 == null)
+            if (pojistka == null)
             {
                 return NotFound();
             }
 
-            return View(pojisteni1);
+            return View(pojistka);
         }
 
-        // GET: Pojisteni1/Create
-        [AllowAnonymous]
+        // GET: Pojistkas/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Pojisteni1/Create
+        // POST: Pojistkas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        public async Task<IActionResult> Create([Bind("Id,Jméno,Příjmení,Věk,Bydliště,Obec,PSČ,Telefon,Email")] Pojisteni1 pojisteni1)
+        public async Task<IActionResult> Create([Bind("Id,PojistenyId,Majetek,Osoby,Zivot,Uraz,Predmet,Od,Do")] Pojistka pojistka)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(pojisteni1);
+                _context.Add(pojistka);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Ulozit));
             }
-            return View(pojisteni1);
+            return View(pojistka);
         }
 
-        // GET: Pojisteni1/Edit/5
+        // GET: Pojistkas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Pojisteni1 == null)
+            if (id == null || _context.Pojistka == null)
             {
                 return NotFound();
             }
 
-            var pojisteni1 = await _context.Pojisteni1.FindAsync(id);
-            if (pojisteni1 == null)
+            var pojistka = await _context.Pojistka.FindAsync(id);
+            if (pojistka == null)
             {
                 return NotFound();
             }
-            return View(pojisteni1);
+            return View(pojistka);
         }
 
-        // POST: Pojisteni1/Edit/5
+        // POST: Pojistkas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Jméno,Příjmení,Věk,Bydliště,Obec,PSČ,Telefon,Email")] Pojisteni1 pojisteni1)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,PojistenyId,Majetek,Osoby,Zivot,Uraz,Predmet,Od,Do")] Pojistka pojistka)
         {
-            if (id != pojisteni1.Id)
+            if (id != pojistka.Id)
             {
                 return NotFound();
             }
@@ -100,12 +94,12 @@ namespace AspSerag.Controllers
             {
                 try
                 {
-                    _context.Update(pojisteni1);
+                    _context.Update(pojistka);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!Pojisteni1Exists(pojisteni1.Id))
+                    if (!PojistkaExists(pojistka.Id))
                     {
                         return NotFound();
                     }
@@ -116,77 +110,70 @@ namespace AspSerag.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(pojisteni1);
+            return View(pojistka);
         }
 
-        // GET: Pojisteni1/Delete/5
+        // GET: Pojistkas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Pojisteni1 == null)
+            if (id == null || _context.Pojistka == null)
             {
                 return NotFound();
             }
 
-            var pojisteni1 = await _context.Pojisteni1
+            var pojistka = await _context.Pojistka
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (pojisteni1 == null)
+            if (pojistka == null)
             {
                 return NotFound();
             }
 
-            return View(pojisteni1);
+            return View(pojistka);
         }
 
-        // POST: Pojisteni1/Delete/5
+        // POST: Pojistkas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Pojisteni1 == null)
+            if (_context.Pojistka == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Pojisteni1'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Pojistka'  is null.");
             }
-            var pojisteni1 = await _context.Pojisteni1.FindAsync(id);
-            if (pojisteni1 != null)
+            var pojistka = await _context.Pojistka.FindAsync(id);
+            if (pojistka != null)
             {
-                _context.Pojisteni1.Remove(pojisteni1);
+                _context.Pojistka.Remove(pojistka);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool Pojisteni1Exists(int id)
+        private bool PojistkaExists(int id)
         {
-          return (_context.Pojisteni1?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Pojistka?.Any(e => e.Id == id)).GetValueOrDefault();
         }
-        // Get Search
         public async Task<IActionResult> Vyhledat(string SearchString)
         {
-            //if (_context.Article1 == null)
+            //if (_context.Pojistkas == null)
             // {
             //     return Problem("Entity set 'ApplicationDbContext.Article1'  is null.");
             //}
             ViewData["Vyhledat"] = SearchString;
-            var pojisteni1 = from m in _context.Pojisteni1
+            var pojistka = from m in _context.Pojistka
                            select m;
 
             if (!String.IsNullOrEmpty(SearchString))
             {
-                pojisteni1 = pojisteni1.Where(s => s.Příjmení!.Contains(SearchString));
+                pojistka = pojistka.Where(s => s.Predmet!.Contains(SearchString));
             }
 
-            return View(await pojisteni1.ToListAsync());
-        }
-        [HttpPost]
-        public string Vyhledat(string searchString, bool notUsed)
-        {
-            return "From [HttpPost]Index: filter on " + searchString;
+            return View(await pojistka.ToListAsync());
         }
         public IActionResult Ulozit()
         {
             return View();
         }
-
     }
 }

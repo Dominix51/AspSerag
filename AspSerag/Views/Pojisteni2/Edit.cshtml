@@ -1,0 +1,36 @@
+﻿@model AspSerag.Models.Pojisteni2
+
+@{
+    ViewData["Title"] = "Editace";
+}
+@section Scripts
+    {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.3/tinymce.min.js"></script>
+    <script src="@Url.Content("~/js/initTinyMCE.js")"></script>
+}
+<section>
+    <form class="d-flex flex-column gap-2" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Jméno" class="control-label">Jméno</label>
+            <input asp-for="Jméno" class="form-control" />
+            <span asp-validation-for="Jméno" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Příjmení" class="control-label">Příjmení</label>
+            <Input asp-for="Příjmení" class="form-control" />
+            <span asp-validation-for="Příjmení" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Popis" class="control-label">Popis</label>
+            <textarea asp-for="Popis" class="form-control"></textarea>
+            <span asp-validation-for="Popis" class="text-danger"></span>
+        </div>
+        <p></p>
+        <div class="form-group">
+            <input type="submit" value="Uložit" class="btn btn-primary" />
+        </div>
+    </form>
+    <a asp-controller="Home" asp-action="Udalosti">Zpět na hlavní stránku</a>
+</section>
+

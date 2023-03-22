@@ -1,0 +1,99 @@
+﻿@model IEnumerable<AspSerag.Models.Pojisteni1>
+
+@{
+    ViewData["Title"] = "Vyhledat";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Vyhledat" method="get">
+            <div class="form-group">
+                <label for="SearchString">Vyhledat podle příjmení</label>
+                <input type="text" name="SearchString"
+                       value="@ViewData["Vyhledat"]" />
+                <input type="submit" value="Hledat" class="btn btn-primary" />
+            </div>
+            <p></p>
+            </p>
+        </form>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jméno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Příjmení)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Věk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bydliště)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Obec)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PSČ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jméno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Příjmení)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Věk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bydliště)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Obec)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PSČ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <p>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editovat</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detail</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Vymazat</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p></p>
+<div>
+    <a asp-controller="Home" asp-action="Pojisteni">Zpět na hlavní stránku</a>
+</div>
+

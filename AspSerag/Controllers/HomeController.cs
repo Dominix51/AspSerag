@@ -4,8 +4,31 @@ using System.Diagnostics;
 
 namespace AspSerag.Controllers
 {
+
     public class HomeController : Controller
     {
+        public IActionResult Kontakt()
+        {
+            return View();
+        }
+        public IActionResult Pojisteni()
+        {
+            return View();
+        }
+
+        public IActionResult Prihlaseni()
+        {
+            return View();
+        }
+
+        public IActionResult Udalosti()
+        {
+            return View();
+        }
+        public IActionResult Register()
+        {
+            return View();
+        }
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -14,16 +37,6 @@ namespace AspSerag.Controllers
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Kontakt()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }

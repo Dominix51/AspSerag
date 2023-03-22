@@ -1,4 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@model RegisterViewModel
 @{
     ViewData["Title"] = "SERAG";
 }
@@ -22,17 +24,13 @@
 		<li>Uživatelů</li>
 		<li>Pojištění</li>
 	</ul>
-
-	<p>
-		<strong>Přidat a vyhledat pojištěnce můžete na odkazech níže:</strong>
-	</p>
+	<p></p>
 
 	<p class="tlacitko-odstavec">
-		<p></p>
-	<a asp-controller="Pojisteni1" asp-action="Create" class="reference-tlacitko">Přidat pojištěnce</a>
-	<a asp-controller="Pojisteni1" asp-action="Vyhledat" class="reference-tlacitko">Vyhledat pojištěnce</a>
-		<p></p>
+	<a asp-controller="Pojisteni1" asp-action="Create" class="reference-tlacitko">Přidat pojištění</a>
+	<a asp-controller="Pojisteni2" asp-action="Create" class="reference-tlacitko">Nahlásit událost</a>
 	</p>
+	<a asp-controller="Account" asp-action="Login">Přihlásit se</a>
 	<div class="cistic"></div>
 </section>
 	

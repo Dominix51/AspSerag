@@ -1,0 +1,32 @@
+﻿@model AspSerag.Models.Pojisteni2
+
+@{
+    ViewData["Title"] = "Detail pojištění";
+}
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Jméno)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Jméno)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Příjmení)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Příjmení)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Popis)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Popis)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Editovat</a> |
+    <a asp-controller="Home" asp-action="Udalosti">Zpět na hlavní stránku</a>
+</div>

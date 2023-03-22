@@ -1,0 +1,92 @@
+﻿@model IEnumerable<AspSerag.Models.Pojistka>
+@{
+    ViewData["Title"] = "Vyhledání pojistné události";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Vyhledat" method="get">
+            <div class="form-group">
+                <label for="SearchString">Vyhledat podle předmětu</label>
+                <input type="text" name="SearchString"
+                       value="@ViewData["Vyhledat"]" />
+                <input type="submit" value="Hledat" class="btn btn-primary" />
+            </div>
+            <p></p>
+        </form>
+    </div>
+</div>
+<p></p>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Majetek)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Osoby)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Zivot)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Uraz)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Predmet)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Od)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Do)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Majetek)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Osoby)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Zivot)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Uraz)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Predmet)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Od)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Do)
+                    </td>
+                    <td>
+                        @if (User.IsInRole("admin"))
+                        {
+                            <p>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Editovat</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Detail</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Vymazat</a>
+                            </p>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

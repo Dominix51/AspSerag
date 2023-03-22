@@ -11,5 +11,7 @@ namespace AspSerag.Data
         {
         }
         public DbSet<AspSerag.Models.Pojisteni1>? Pojisteni1 { get; set; }
+        public DbSet<AspSerag.Models.Pojisteni2>? Pojisteni2 { get; set; }
+        public DbSet<AspSerag.Models.Pojistka>? Pojistka { get; set; }
     }
 }

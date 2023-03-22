@@ -1,5 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@model RegisterViewModel
 @{
+    ViewData["Title"] = "Pojištění";
 }
+<section>
+    <div>
+        <strong>Vytvořit pojištění viz. níže:</strong>
+    </div>
+    <p>
+    </p>
+    <p class="tlacitko-odstavec">
+        <a asp-controller="Pojisteni1" asp-action="Create" class="reference-tlacitko">Vytvořit pojištěného + pojištění</a>
+
+        @if (User.IsInRole("admin"))
+        {
+            <a asp-controller="Pojisteni1" asp-action="Vyhledat" class="reference-tlacitko">Vyhledat pojištěného</a>
+            <a asp-controller="Pojistkas" asp-action="Vyhledat" class="reference-tlacitko">Vyhledat pojištění</a>
+            <a asp-controller="Pojisteni1" asp-action="Index" class="reference-tlacitko">Seznam pojištěnců</a>
+        }
+    </p>
+    <div class="cistic"></div>
+</section>

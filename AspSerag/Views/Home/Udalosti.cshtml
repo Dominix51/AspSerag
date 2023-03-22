@@ -1,17 +1,24 @@
 ﻿@using Microsoft.AspNetCore.Identity
-
+@inject UserManager<IdentityUser> UserManager
+@model RegisterViewModel
 @{
     ViewData["Title"] = "Evidence pojistné události";
 }
 
 
 <section>
-   <strong>Přidat a vyhledat pojistné události můžete na odkazech níže:</strong>
+    <strong>Přidat pojistnou událost viz níže:</strong>
     </p>
+    <p></p>
 
     <p class="tlacitko-odstavec">
-        <a asp-controller="Article2" asp-action="Index" class="reference-tlacitko">Přidat pojistnou událost</a> 
-        <a asp-controller="Article2" asp-action="Index" class="reference-tlacitko">Vyhledat pojistnou událost</a>
+        <a asp-controller="Pojisteni2" asp-action="Create" class="reference-tlacitko">Přidat pojistnou událost</a>
+
+        @if (User.IsInRole("admin"))
+        {
+            <a asp-controller="Pojisteni2" asp-action="Vyhledat" class="reference-tlacitko">Vyhledat událost</a>
+            <a asp-controller="Pojisteni2" asp-action="Index" class="reference-tlacitko">Seznam  událostí</a>
+        }
     </p>
     <div class="cistic"></div>
 </section>

@@ -1,12 +1,9 @@
 ﻿@model AspSerag.Models.Pojisteni1
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Vytvoření pojistěného";
 }
 
-<h1>Create</h1>
-
-<h4>Pojisteni1</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -43,23 +40,24 @@
                 <span asp-validation-for="PSČ" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Telefon" class="control-label"></label>
+                <label asp-for="Telefon" class="control-label">Telefonní číslo</label>
                 <input asp-for="Telefon" class="form-control" />
                 <span asp-validation-for="Telefon" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
+                <label asp-for="Email" class="control-label">Emailová adresa</label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-controller="Pojistkas" asp-action="Create">Přidat související pojištění</a>
             </div>
         </form>
     </div>
 </div>
-
+<p></p>
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-controller="Home" asp-action="Pojisteni">Zpět na hlavní stránku</a>
 </div>
 
