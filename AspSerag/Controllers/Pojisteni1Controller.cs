@@ -183,6 +183,7 @@ namespace AspSerag.Controllers
         {
             return "From [HttpPost]Index: filter on " + searchString;
         }
+        [AllowAnonymous]
         public IActionResult Ulozit()
         {
             return View();

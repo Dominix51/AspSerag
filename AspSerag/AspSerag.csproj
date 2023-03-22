@@ -20,6 +20,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Account\Admin.cshtml" />
+    <None Include="Views\Account\Login.cshtml" />
+    <None Include="Views\Account\Register.cshtml" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\lightbox2\js\lightbox-plus-jquery.js" />
+    <None Include="wwwroot\lib\lightbox2\js\lightbox-plus-jquery.min.js" />
+    <None Include="wwwroot\lib\lightbox2\js\lightbox-plus-jquery.min.map" />
+    <None Include="wwwroot\lib\lightbox2\js\lightbox.js" />
+    <None Include="wwwroot\lib\lightbox2\js\lightbox.min.js" />
+    <None Include="wwwroot\lib\lightbox2\js\lightbox.min.map" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />

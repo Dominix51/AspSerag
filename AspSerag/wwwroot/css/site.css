@@ -92,7 +92,7 @@ nav ul {
 
         nav ul a:hover,
         .aktivni a {
-            border-bottom: 2px solid #70B73A;
+            border-bottom: 2px solid greenyellow;
         }
 
 article {
@@ -142,7 +142,7 @@ footer {
     text-align: center;
     height: 100px;
     color: white;
-    background: #999999;
+    background: #414042;
     padding: 50px 0 0 0;
     clip-path: polygon(0 30px, 100% 0, 100% 105%, 0 105%);
 }
@@ -184,7 +184,7 @@ footer {
 }
 
     .kontakt-tlacitko:hover,
-    .reference-tlacitko:hover {
+    .reference-tlacitko:hover{
         filter: brightness(115%) contrast(85%);
         border: 0;
     }
