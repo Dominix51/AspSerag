@@ -36,10 +36,9 @@
                     <p>
                         <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Registrace</a>
                     </p>
-                    @if (User.IsInRole("administrator"))
-                    {
+                    
                         <a asp-controller="Account" asp-action="Logout">Odhlásit se</a>
-                    }
+                    
                 </div>
             </form>
         </div>

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AspSerag.Controllers
 {
-    [Authorize(Roles ="administrator")]
+    [AllowAnonymous]
     public class Pojisteni1Controller : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -14,11 +14,10 @@
     <p class="tlacitko-odstavec">
         <a asp-controller="Pojisteni2" asp-action="Create" class="reference-tlacitko">Přidat pojistnou událost</a>
         
-        @if (User.IsInRole("administrator"))
-        {
+       
             <a asp-controller="Pojisteni2" asp-action="Vyhledat" class="reference-tlacitko">Vyhledat událost</a>
             <a asp-controller="Pojisteni2" asp-action="Index" class="reference-tlacitko">Seznam  událostí</a>
-        }
+       
     </p>
     <div class="cistic"></div>
 </section>
