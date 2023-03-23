@@ -10,8 +10,8 @@ namespace AspSerag.Data
             : base(options)
         {
         }
-        public DbSet<AspSerag.Models.Pojisteni1>? Pojisteni1 { get; set; }
-        public DbSet<AspSerag.Models.Pojisteni2>? Pojisteni2 { get; set; }
-        public DbSet<AspSerag.Models.Pojistka>? Pojistka { get; set; }
+        public DbSet<Pojisteni1> Pojisteni1 { get; set; } = default!;
+        public DbSet<Pojisteni2> Pojisteni2 { get; set; } = default!;
+        public DbSet<Pojistka> Pojistka { get; set; } = default!;
     }
 }

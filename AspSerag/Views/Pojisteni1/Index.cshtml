@@ -70,17 +70,17 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                    @if (User.IsInRole("admin"))
+                    @if (User.IsInRole("administrator"))
                     {
                         <p>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                         </p>
                     }
             </td>
         </tr>
-}
+            }
     </tbody>
 </table>
 <a asp-controller="Home" asp-action="Pojisteni">Zpět na hlavní stránku</a>

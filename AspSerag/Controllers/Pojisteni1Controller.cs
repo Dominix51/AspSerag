@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AspSerag.Controllers
 {
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles ="administrator")]
     public class Pojisteni1Controller : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -163,9 +163,9 @@ namespace AspSerag.Controllers
         // Get Search
         public async Task<IActionResult> Vyhledat(string SearchString)
         {
-            //if (_context.Article1 == null)
+            //if (_context.Pojisteni1 == null)
             // {
-            //     return Problem("Entity set 'ApplicationDbContext.Article1'  is null.");
+            //     return Problem("Entity set 'ApplicationDbContext.Pojisteni1'  is null.");
             //}
             ViewData["Vyhledat"] = SearchString;
             var pojisteni1 = from m in _context.Pojisteni1
@@ -178,6 +178,7 @@ namespace AspSerag.Controllers
 
             return View(await pojisteni1.ToListAsync());
         }
+
         [HttpPost]
         public string Vyhledat(string searchString, bool notUsed)
         {
