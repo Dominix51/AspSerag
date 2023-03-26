@@ -38,13 +38,13 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-//using (var scope = app.Services.CreateScope())
-//{
-//RoleManager<IdentityRole> spravceRoli = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-//UserManager<IdentityUser> spravceUzivatelu = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-//spravceRoli.CreateAsync(new IdentityRole("administrator")).Wait();
-//IdentityUser uzivatel = spravceUzivatelu.FindByEmailAsync("domin@domin.cz").Result;
-//spravceUzivatelu.AddToRoleAsync(uzivatel, "administrator").Wait();
-//}
+using (var scope = app.Services.CreateScope())
+{
+RoleManager<IdentityRole> spravceRoli = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+UserManager<IdentityUser> spravceUzivatelu = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+spravceRoli.CreateAsync(new IdentityRole("administrator")).Wait();
+IdentityUser uzivatel = spravceUzivatelu.FindByEmailAsync("admin@admin.cz").Result;
+spravceUzivatelu.AddToRoleAsync(uzivatel, "administrator").Wait();
+}
 
 app.Run();
